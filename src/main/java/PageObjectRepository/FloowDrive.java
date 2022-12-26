@@ -9,6 +9,8 @@ import org.openqa.selenium.support.*;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSFindBy;
 
 
 public class FloowDrive {
@@ -20,6 +22,14 @@ public class FloowDrive {
 		PageFactory.initElements(driver, this);
 	}
 
+	
+	@FindBy(css = "someBrowserCss") //this locator is used when here is browser (desktop or mobile) 
+	@iOSFindBy(uiAutomator = ".elements()[0]") //this locator is used when here is iOS native content 
+	@AndroidFindBy(className = "android.widget.TextView") //this locator is used when here is Android  
+	//native content 
+	public List<WebElement> androidOriOsTextViews; 
+	
+	
 	@FindBy(xpath = "//android.widget.Button[@resource-id='com.thefloow.thefloowltd.floowdrivedemo.app:id/btn_already_registered']")
 	private WebElement btn_already_registered;
 
